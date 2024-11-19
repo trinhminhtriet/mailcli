@@ -12,14 +12,12 @@ import (
 	"gopkg.in/jordan-wright/email.v2"
 )
 
-// Mailer encapsulates data used for sending email.
 type Mailer struct {
 	Auth    smtp.Auth
 	Address string
 	TLS     *tls.Config
 }
 
-// NewMailer creates a new Mailer.
 func NewMailer(username, password, host, port string, skipCertValidation bool) Mailer {
 	return Mailer{
 		Auth: smtp.PlainAuth(
@@ -89,7 +87,6 @@ func parseTemplate(templatePath string, context interface{}) ([]byte, error) {
 	return doc.Bytes(), nil
 }
 
-// Send sends an email Message.
 func (m *Mailer) Send(msg *email.Email) error {
 	err := msg.SendWithTLS(
 		m.Address,
