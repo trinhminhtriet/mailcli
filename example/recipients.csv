@@ -1,0 +1,5 @@
+Email,Name,Type
+john@doe.com,John Doe,Human
+alice@example.com,Alice,Admin
+bob@example.com,Bob,User
+charlie@example.com,Charlie,Guest
